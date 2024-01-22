@@ -5,6 +5,11 @@ restaurantes = ['Habibs', 'MacDonalds', 'Restaurante Dona Maria']
 def exibir_nome_do_programa():
     print("Sabor Express")
 
+def exibir_subtitulo(texto):
+    os.system('cls')
+    print(texto)
+    print()
+
 def exibir_opcoes():
     print("1. Cadastrar Restaurante")
     print("2. Listar Restaurante")
@@ -12,11 +17,10 @@ def exibir_opcoes():
     print("4. Sair\n")
 
 def finalizar_app():
-    os.system('cls')
-    print("Saindo da aplicação...\n")
+    exibir_subtitulo("Saindo da aplicação...")
 
 def opcao_invalida():
-    print("Opção inválida!\n")
+    exibir_subtitulo("Opção inválida!")
     input("Por favor aperte qualquer tecla e selecione uma opção válida!")
     main()
 
@@ -33,26 +37,26 @@ def seleciona_opcao_cadastro():
         opcao_invalida()
 
 def cadastrar_novo_restaurante():
-    os.system('cls')
-    print("Cadastro de novos restaurantes\n")
-    nome_restaurante = input("Informe o nome do reaurante que deseja cadastrar: ")
+
+    exibir_subtitulo("Cadastro de novos restaurantes")
+
+    nome_restaurante = input("Informe o nome do restaurante que deseja cadastrar: ")
     os.system('cls')
     restaurantes.append(nome_restaurante)
-    print(f"O estabelecimento {nome_restaurante} foi inserido com sucesso!\n")
+    print(f"O estabelecimento {nome_restaurante} foi inserido com sucesso!")
 
-    print("1. Inserir novo restaurante?")
-    print("2. Voltar ao menu principal")
-    print("3. Sair\n")
-
-    seleciona_opcao_cadastro()
+    submenu_aplicacao()
 
 def listar_restaurantes():
-    os.system('cls')
-    print("Listando Restaurantes\n")
+    exibir_subtitulo("Listando Restaurantes")
 
-    
+    for restaurante in restaurantes:
+        print(f".{restaurante}")
 
-    print("1. Inserir novo restaurante?")
+    submenu_aplicacao()
+
+def submenu_aplicacao():
+    print("\n1. Inserir novo restaurante?")
     print("2. Voltar ao menu principal")
     print("3. Sair\n")
 
